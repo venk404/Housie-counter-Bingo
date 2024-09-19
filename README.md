@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+# House Counter
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+House Counter is a React-based web application designed to assist in playing housie (also known as bingo or tambola) during the Ganpati festival season. This digital solution addresses the challenges of manual number calling, ensuring accuracy and ease in number generation during the game.
 
-## Available Scripts
+## Background
 
-In the project directory, you can run:
+During the Ganpati festival, many communities enjoy playing housie as a social activity. However, manual number calling can be prone to errors and can be difficult to manage, especially in larger gatherings. This application was created to solve these issues by providing a reliable, automated number generation and tracking system.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Generate random numbers from 1 to 90, simulating a traditional housie game
+- Visual representation of called numbers for easy tracking
+- Audio playback for each generated number, ensuring clear communication
+- Auto-generate mode with configurable interval for consistent pacing
+- Reset functionality to start a new game
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Prerequisites
 
-### `npm test`
+Before you begin, ensure you have the following installed on your local machine:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v14.0.0 or later)
+- npm (v6.0.0 or later)
+- Python (v3.6 or later) - for generating audio files
 
-### `npm run build`
+## Local Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository to your local machine:
+   ```
+   git clone https://github.com/yourusername/house-counter.git
+   cd house-counter
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Install the project dependencies:
+   ```
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Generate audio files (see "Generating Audio Files" section below)
 
-### `npm run eject`
+4. Start the development server:
+   ```
+   npm start
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+5. Open your browser and visit `http://localhost:3000` to view the application.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Generating Audio Files
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The project includes a Python script to generate MP3 audio files for each number, which is crucial for clear number announcements during the game. Follow these steps to create the audio files:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Install the required Python package:
+   ```
+   pip install gTTS
+   ```
 
-## Learn More
+2. Run the Python script:
+   ```
+   python generate_audio.py
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. The script will create a folder named `number_sounds` and generate 90 MP3 files named `1.mp3` through `90.mp3`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. Move the generated MP3 files to the `public/Sounds` directory in your React project.
 
-### Code Splitting
+### About the Python Script
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The `generate_audio.py` script uses the Google Text-to-Speech (gTTS) library to convert numbers to speech. Here's a brief explanation of how it works:
 
-### Analyzing the Bundle Size
+- It creates a folder called `number_sounds` to store the generated audio files.
+- It loops through numbers 1 to 90, converting each number to speech.
+- For each number, it generates an MP3 file with the corresponding spoken number.
+- The files are saved as `1.mp3`, `2.mp3`, ..., `90.mp3` in the `number_sounds` folder.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+This script ensures clear and consistent number announcements during the game.
 
-### Making a Progressive Web App
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Click the "Generate" button to select and announce a random number.
+- Use the "Start Auto Generate" button to begin automatic number generation every 3 seconds, useful for maintaining a steady pace in the game.
+- Click "Stop Auto Generate" to pause the automatic generation, allowing for breaks or discussions during the game.
+- Press the "Reset" button to clear all selections and start a new game.
 
-### Advanced Configuration
+## Customization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- To change the auto-generate interval, modify the `setInterval` call in the `startAutoGenerate` function.
+- Adjust the styling by modifying the Tailwind CSS classes in the component to match your preferred visual theme.
+- To use a different language for number pronunciation (e.g., Hindi or Marathi for local games), modify the `lang` parameter in the `gTTS` function call in the Python script.
 
-### Deployment
+## Benefits for Ganpati Festival Housie Games
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Eliminates human error in number calling
+- Ensures fair and random number generation
+- Improves audibility with clear audio announcements
+- Provides visual tracking for players and organizers
+- Allows for flexible pacing with manual and auto-generate options
+- Enhances the overall gaming experience during festival celebrations
 
-### `npm run build` fails to minify
+## Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Contributions are welcome! If you have ideas for improvements or new features that could enhance the housie experience during Ganpati festival, please feel free to submit a Pull Request.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
