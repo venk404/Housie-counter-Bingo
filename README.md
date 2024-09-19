@@ -93,7 +93,12 @@ This script ensures clear and consistent number announcements during the game.
 - Improves audibility with clear audio announcements
 - Provides visual tracking for players and organizers
 - Allows for flexible pacing with manual and auto-generate options
-- Enhances the overall gaming experience during festival celebrations
+- Enhances the overall
+- gaming experience during festival celebrations
+  
+##image
+
+![image](https://github.com/user-attachments/assets/cbe9ce5e-db6e-498a-8380-f0a6d8b5429f)
 
 ## Contributing
 
