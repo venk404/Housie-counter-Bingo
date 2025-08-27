@@ -94,7 +94,7 @@ const HouseCounter = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-4">
-      <h1 className="text-4xl font-bold mb-8">House Counter</h1>
+      <h1 className="text-4xl font-bold mb-8">Housie Counter</h1>
       <div className="text-2xl font-bold mb-4">
         Selected Number: {selectedNumber !== 0 ? selectedNumber : '-'}
       </div>
